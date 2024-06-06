@@ -19,7 +19,7 @@ def get_session():
 # Crea un Blueprint per le rotte API
 api = Blueprint('api', __name__)
 
-# ---- AUTENTICAZIONE ---- #
+# --------------------------------------------- AUTENTICAZIONE -------------------------------------- #
 
 # Registrazione degli utenti
 @api.route('/register', methods=['POST'])
@@ -66,7 +66,9 @@ def login():
     return jsonify({'message': 'Login successful'}), 200
 
 
+
 # -------------------------------------------- GESTIONE PRODOTTI ---------------------------------------------- #
+
 
 
 # Definisci la rotta API per ottenere tutti i prodotti
