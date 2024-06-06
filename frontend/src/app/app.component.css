@@ -1,3 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
@@ -383,8 +384,11 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+  -webkit-appearance: button; /* Per i browser WebKit come Safari e Chrome */
+  -moz-appearance: button;    /* Per i browser Gecko come Firefox */
+  appearance: button;         /* Proprietà standard per tutti i browser compatibili */
 }
+
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -440,10 +444,13 @@ legend + * {
 }
 
 [type=search] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield;
+    outline-offset: -2px;
+    -webkit-appearance: textfield; /* Per i browser WebKit come Safari e Chrome */
+    -moz-appearance: textfield;    /* Per i browser Gecko come Firefox */
+    -ms-appearance: textfield;     /* Per i browser basati su Trident come Internet Explorer */
+    appearance: textfield;         /* Proprietà standard per tutti i browser compatibili */
 }
-
+  
 /* rtl:raw:
 [type="tel"],
 [type="url"],
@@ -463,6 +470,7 @@ legend + * {
 ::file-selector-button {
   font: inherit;
   -webkit-appearance: button;
+  appearance: button;
 }
 
 output {

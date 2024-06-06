@@ -66,7 +66,7 @@ def login():
     return jsonify({'message': 'Login successful'}), 200
 
 
-# ----- GESTIONE PRODOTTI ------ #
+# -------------------------------------------- GESTIONE PRODOTTI ---------------------------------------------- #
 
 
 # Definisci la rotta API per ottenere tutti i prodotti
