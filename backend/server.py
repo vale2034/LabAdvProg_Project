@@ -1,13 +1,18 @@
-from flask import Flask
-from app.routes import api  # Importa il blueprint delle rotte API
+from flask import Flask, jsonify
+from flask_cors import CORS
+from app.routes import api
 from config import engine, Base
 
 app = Flask(__name__)
+CORS(app)
 
-# Registra il blueprint delle rotte API
 app.register_blueprint(api, url_prefix='/api')
 
 Base.metadata.create_all(bind=engine)
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    return jsonify({'error': 'Unexpected Error', 'message': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

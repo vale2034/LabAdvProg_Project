@@ -1,0 +1,7 @@
+<div *ngFor="let item of cartItems">
+    <div>
+      <span>{{ item.product_name }}</span>
+      <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.product_id, item.quantity)" />
+    </div>
+  </div>
+  
