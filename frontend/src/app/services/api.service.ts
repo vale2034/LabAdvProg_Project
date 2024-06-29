@@ -12,15 +12,12 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/products`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get('/api/products');
   }
 
-
-  getProduct(id: number): Observable<any> {
+  getProduct(id: number): any {
     return this.http.get(`${this.baseUrl}/products/${id}`).pipe(
-      catchError(this.handleError)
+      //catchError(this.handleError)
     );
   }
 

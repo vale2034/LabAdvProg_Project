@@ -93,7 +93,7 @@ def get_all_products():
             products_data.append(product_data)
 
         # Restituisci i dati dei prodotti in formato JSON
-        return jsonify(products_data)
+        return product_data;
     except Exception as e:
         # Stampa l'errore per il debug
         print(e)

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from app.routes import api
 from config import engine, Base
@@ -9,6 +9,13 @@ CORS(app)
 app.register_blueprint(api, url_prefix='/api')
 
 Base.metadata.create_all(bind=engine)
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 @app.errorhandler(Exception)
 def handle_exception(e):

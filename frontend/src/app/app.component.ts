@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   cartItemCount = 0;
   products: any[] = [];
+  title: any;
 
   constructor(private apiService: ApiService, private router: Router) { }
 
@@ -26,10 +27,19 @@ export class AppComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.apiService.getProducts().subscribe(products => {
-      this.products = products;
-    });
+    console.log("Caricamento Prodotti");
+    this.apiService.getProducts().subscribe(
+      (products: any[]) => {
+        console.log(products);
+        this.products = products; // Assegna i dati al tuo array di prodotti nel componente
+      },
+      (error: any) => {
+        console.error('Error fetching products:', error);
+      }
+    );
   }
+  
+
 
   addToCart(productId: number): void {
     const userId = 1; // Sostituisci con l'ID dell'utente attuale
