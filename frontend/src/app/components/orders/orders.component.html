@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div *ngIf="orders.length === 0">
+      <p>Ciao {{ username }}, non sono stati effettuati ordini.</p>
+    </div>
+  <div *ngIf="orders.length > 0">
+    <h2>Lista Ordini</h2>
+    <div class="row">
+      <div class="col-12" *ngFor="let order of orders">
+        <div class="card order-box mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Order ID: {{ order.id }}</h5>
+            <p>User ID: {{ order.user_id }}</p>
+            <p>Total Price: {{ order.total_price | currency }}</p>
+            <p>Status: {{ order.status }}</p>
+            <!-- Bottone per rimuovere l'ordine -->
+            <button class="btn btn-danger mt-2" (click)="removeOrder(order.id)">Rimuovi ordine</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

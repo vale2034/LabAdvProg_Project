@@ -9,6 +9,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './services/api.service';
+import { OrdersComponent } from './components/orders/orders.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -18,6 +21,9 @@ import { ApiService } from './services/api.service';
     ProductDetailComponent,
     CartComponent,
     OrderComponent,
+    OrdersComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

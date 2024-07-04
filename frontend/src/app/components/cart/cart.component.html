@@ -1,7 +1,33 @@
-<div *ngFor="let item of cartItems">
-    <div>
-      <span>{{ item.product_name }}</span>
-      <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.product_id, item.quantity)" />
+<div class="container">
+  <h2>Shopping Cart</h2>
+    <div *ngIf="cartItems.length === 0">
+      <p>Your cart is empty.</p>
     </div>
-  </div>
-  
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" *ngIf="cartItems.length > 0">
+          <div class="col mb-5" *ngFor="let item of cartItems">
+            <div class="card h-100">
+            <img [src]="itemsImages[item.nome] || 'assets/images/default.png'" class="card-img-top" alt="{{ item.nome }}">
+                  <div class="card-body p-4">
+                    <div class="text-center">
+                      <h5 class="fw-bolder">{{ item?.nome }}</h5>
+                      <p>{{ item?.descrizione }}</p>
+                      <div class="price">{{ item?.prezzo | currency }}</div>
+                      <div class="quantity-box">{{ item.quantity }}</div> 
+                    </div>
+                  </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center">
+                    <button class="btn btn-outline-dark mt-auto" (click)="removeFromCart(item.id)">removeFromCart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-primary" routerLink="/order" [disabled]="cartItems.length === 0">Complete Order</button>
+          </div>
+        </div>
+      </section>
+    </div>

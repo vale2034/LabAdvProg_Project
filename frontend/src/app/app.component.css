@@ -3615,10 +3615,9 @@ textarea.form-control-lg {
 .nav {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: ;
+  --bs-nav-link-font-weight: 1rem;
   --bs-nav-link-color: var(--bs-link-color);
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
-  --bs-nav-link-disabled-color: #6c757d;
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -3626,11 +3625,22 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+.nav-item {
+  list-style-type: none;
+  display: flex;
+
+}
+
+.nav-item.dropdown {
+  margin-left: 1rem; /* Aggiunge margine tra l'icona del carrello e il nome utente */
+}
+
+
 .nav-link {
-  display: block;
-  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-  font-size: var(--bs-nav-link-font-size);
-  font-weight: var(--bs-nav-link-font-weight);
+  display: flex;
+  padding: 0rem;
+  font-size: large;
+  font-weight: bold;
   color: var(--bs-nav-link-color);
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -10831,4 +10841,65 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+
+.nav-item.dropdown {
+  margin-left: 1rem; /* Aggiunge margine tra l'icona del carrello e il nome utente */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center; /* Allinea il testo e l'icona del dropdown */
+  padding: 0.5rem 1rem; /* Aggiunge un po' di padding per migliorare la cliccabilità */
+  font-size: large;
+  font-weight: lighter;
+  color: var(--bs-nav-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.nav-item {
+  list-style-type: none; /* Rimuove i marker dai list item */
+}
+
+.nav-item.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  will-change: transform;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: none;
+  }
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: var(--bs-nav-link-hover-color);
+}
+
+.nav-link.disabled {
+  color: var(--bs-nav-link-disabled-color);
+  pointer-events: none;
+  cursor: default;
 }

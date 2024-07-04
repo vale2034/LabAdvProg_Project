@@ -4,12 +4,19 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'orders', component: OrderComponent }
+  { path: 'order', component: OrderComponent },
+  { path: 'orders/:id', component: OrdersComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent }
+
 ];
 
 @NgModule({

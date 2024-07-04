@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './services/api.service';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { CartComponent } from './components/cart/cart.component';
+
+
+declare global {
+  interface Window {
+    appComponent: AppComponent; // Dichiarazione di appComponent come variabile globale di tipo AppComponent
+    cartComponent: CartComponent;
+  }
+}
+
 
 @Component({
   selector: 'app-root',
@@ -11,49 +22,52 @@ export class AppComponent implements OnInit {
   cartItemCount = 0;
   products: any[] = [];
   title: any;
+  cartItems: any[] = [];
+  currentUser: any;
+  isLoggedIn = false;
+  username = '';
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router, private authService: AuthService) {
+    window.appComponent = this;
+    this.authService.loggedInStatus.subscribe(status => {
+      this.isLoggedIn = status;
+      this.username = this.authService.getUsername();
+    });
+   }
 
   ngOnInit(): void {
-    this.loadProducts();
-    // this.loadCartItemCount();
+    this.loadCartItemCount();
   }
 
   loadCartItemCount(): void {
-    const userId = 1; // Sostituisci con l'ID dell'utente attuale
+    const userId = this.authService.getUserId(); // Sostituisci con l'ID dell'utente attuale
     this.apiService.getCart(userId).subscribe(cartItems => {
       this.cartItemCount = cartItems.reduce((sum: any, item: any) => sum + item.quantity, 0);
     });
   }
 
-  loadProducts(): void {
-    console.log("Caricamento Prodotti");
-    this.apiService.getProducts().subscribe(
-      (products: any[]) => {
-        console.log(products);
-        this.products = products; // Assegna i dati al tuo array di prodotti nel componente
+
+  fetchOrders() {
+    const userId = 1; // Sostituisci con l'ID dell'utente corrente, se disponibile
+    this.apiService.getOrders(userId).subscribe(
+      (orders) => {
+        console.log('Orders:', orders);
+        // Naviga al componente degli ordini e passa gli ordini come parametro
+        this.router.navigate(['/orders', userId], { state: { orders: orders } });
       },
-      (error: any) => {
-        console.error('Error fetching products:', error);
+      (error) => {
+        console.error('Error fetching orders:', error);
+        // Gestisci l'errore qui se necessario
       }
     );
   }
   
 
-
-  addToCart(productId: number): void {
-    const userId = 1; // Sostituisci con l'ID dell'utente attuale
-    const quantity = 1; // Puoi modificare questo valore o ottenere la quantità dinamicamente
-    this.apiService.addToCart(userId, productId, quantity).subscribe(() => {
-      this.loadCartItemCount();
-    });
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
-  viewCart(): void {
-    this.router.navigate(['/cart']);
-  }
 
-  viewProductDetails(productId: number): void {
-    this.router.navigate(['/product', productId]);
-  }
+
 }
