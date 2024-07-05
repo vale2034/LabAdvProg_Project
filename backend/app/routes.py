@@ -213,7 +213,6 @@ def add_to_cart():
 
         return jsonify(cart_item_data), 201
 
-
     except Exception as e:
         print(f"Error adding to cart: {str(e)}")
         return jsonify({'error': 'Internal Server Error'}), 500

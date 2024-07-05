@@ -38,15 +38,7 @@ export class OrdersComponent implements OnInit{
 
 
 
-  itemsImages: { [key: string]: string } = {
-    'Iphone15': 'assets/images/Iphone15.png',
-    'Galaxy Tab': 'assets/images/Galaxy Tab.jpg',
-    'Nexus': 'assets/images/Nexus.png',
-    'Coffe machine': 'assets/images/Coffe machine.png',
-    'alexa': 'assets/images/alexa.jpg'
-
-    // Aggiungi altre mappature qui
-  };
+ 
 
 
   removeOrder(orderId: number) {
@@ -59,6 +51,48 @@ export class OrdersComponent implements OnInit{
       // Gestisci l'errore, se necessario
     });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  itemsImages: { [key: string]: string } = {
+    'Bio T-shirt - Colore Sabbia': 'assets/images/Bio T-shirt - Colore Sabbia.png',
+    'BioChino -  Colore Oliva': 'assets/images/BioChino -  Colore Oliva.png',
+    'Camicia jeans organico': 'assets/images/Camicia jeans organico.png',
+    'Felpa con cappuccio cotone organico - Colore blu notte': 'assets/images/Felpa con cappuccio cotone organico - Colore blu notte.png',
+    'Camicia cotone organico - Colore Ruggine': 'assets/images/Camicia cotone organico - Colore Ruggine.png',
+    'Camica Classica Eco Tessuto - Colore Blu a righe': 'assets/images/Camica Classica Eco Tessuto - Colore Blu a righe.png',
+    'Camicia - Colore Blu Notte': 'assets/images/Camicia - Colore Blu Notte.png',
+    'Camicia Bio - Colore Sabbia': 'assets/images/Camicia Bio - Colore Sabbia.png',
+    'Cappellino Eco - Bianco': 'assets/images/Cappellino Eco - Bianco.png',
+    'Giacca Eco - Colore Bianco': 'assets/images/Giacca Eco - Colore Bianco.png',
+    'Giacca Eco - Colore Crema': 'assets/images/Giacca Eco - Colore Crema.png',
+    'Girocollo cotone organico - Colore Rosso': 'assets/images/Girocollo cotone organico - Colore Rosso.png',
+    'Polo ricamata - Colore Nero': 'assets/images/Polo ricamata - Colore Nero.png',
+    'T-Shirt Bio - Colore Verde Militare': 'assets/images/T-Shirt Bio - Colore Verde Militare.png',
+    'Zaino Organico - Colore atracite': 'assets/images/Zaino Organico - Colore atracite.png',
+    'Smanicata Eco - Colore atracite': 'assets/images/Smanicata Eco - Colore atracite.png',
+    'Giacca invernale Piuma solidale - Colore atracite': 'assets/images/Giacca invernale Piuma solidale - Colore atracite.png',
+    'Smanicato Tecnico - Colore Atracite': 'assets/images/Smanicato Tecnico - Colore Atracite.png',
+    'BioChino - Colore Sabbia': 'assets/images/BioChino - Colore Sabbia.png',
+    'BioChino- Colore Nero': 'assets/images/BioChino- Colore Nero.png'
+    // Aggiungi altre mappature qui
+  };
 
 
 }
