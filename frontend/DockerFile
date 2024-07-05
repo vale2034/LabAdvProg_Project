@@ -1,29 +1,28 @@
-# Usa un'immagine base per Node.js
-FROM node:16-alpine AS build
+# Stage 1: Build dell'app Angular
+FROM node:20 AS build
 
-# Imposta la directory di lavoro nel container
-WORKDIR /app
+WORKDIR /src/app
 
-# Copia il file package.json e package-lock.json
+# Copia i file necessari per l'installazione delle dipendenze
 COPY package*.json ./
 
 # Installa le dipendenze
 RUN npm install
 
-# Copia il resto del codice dell'app
+# Copia tutto il resto del codice dell'applicazione
 COPY . .
 
-# Costruisci l'app Angular
+# Build dell'app Angular in modalità produzione
 RUN npm run build --prod
 
-# Usa un'immagine Nginx per servire l'app
+# Stage 2: Serve l'app con Nginx
 FROM nginx:alpine
 
-# Copia i file costruiti da Angular nella directory di Nginx
-COPY --from=build /app/dist/<ecommerce> /usr/share/nginx/html
+# Copia il risultato della build dall'immagine precedente
+COPY --from=build src/app/dist /usr/share/nginx/html
 
-# Esponi la porta su cui Nginx sta girando
-EXPOSE 80
+# Esponi la porta 80 su cui Nginx sta girando
+EXPOSE 4020
 
-# Comando per eseguire Nginx
+# Comando per avviare Nginx
 CMD ["nginx", "-g", "daemon off;"]
