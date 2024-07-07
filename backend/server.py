@@ -41,4 +41,4 @@ def wait_for_db(engine, retries=5, delay=2):
 
 if __name__ == '__main__':
     wait_for_db(engine)  # Ensure database is ready
-    app.run(debug=True, host='127.0.0.1', port=5000)  
+    app.run(debug=True, host='0.0.0.0', port=5000)  

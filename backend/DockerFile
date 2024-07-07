@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # Imposta la directory di lavoro nel container
-WORKDIR /app
+WORKDIR /backend
 
 # Copia il file dei requisiti
 COPY requirements.txt .
@@ -17,9 +17,8 @@ COPY . .
 COPY wait-for-it.sh /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
 
-
 # Esponi la porta su cui Flask sta girando
 EXPOSE 5000
 
 # Comando per eseguire l'app
-CMD ["/wait-for-it.sh", "db:5432", "--", "python", "server.py"]
+CMD ["python", "server.py"]

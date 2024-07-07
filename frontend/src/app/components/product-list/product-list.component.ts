@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
 
   productImages: { [key: string]: string } = {
     'Bio T-shirt - Colore Sabbia': 'assets/images/Bio T-shirt - Colore Sabbia.png',
-    'BioChino -  Colore Oliva': 'assets/images/BioChino -  Colore Oliva.png',
+    'BioChino-Colore Oliva': 'assets/images/BioChino-Colore Oliva.png',
     'Camicia jeans organico': 'assets/images/Camicia jeans organico.png',
     'Felpa con cappuccio cotone organico - Colore blu notte': 'assets/images/Felpa con cappuccio cotone organico - Colore blu notte.png',
     'Camicia cotone organico - Colore Ruggine': 'assets/images/Camicia cotone organico - Colore Ruggine.png',
