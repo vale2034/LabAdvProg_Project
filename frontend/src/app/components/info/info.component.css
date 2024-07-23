@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 80px;
+}
+
+.info-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 1.7em;
+  text-align: justify;
+  max-width: 1000px;
+  line-height: 1.5; /* Per aumentare lo spazio tra le righe */
+}
+
+.info-text p {
+  margin-bottom: 20px; /* Per aggiungere spazio tra i paragrafi */
+}

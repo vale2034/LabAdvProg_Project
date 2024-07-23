@@ -1,4 +1,3 @@
--- Creazione delle sequenze
 CREATE SEQUENCE IF NOT EXISTS cart_items_id_seq;
 CREATE SEQUENCE IF NOT EXISTS orders_id_seq;
 CREATE SEQUENCE IF NOT EXISTS prodotti_id_seq;
@@ -19,7 +18,6 @@ CREATE TABLE IF NOT EXISTS public.prodotti
 
 
 
-
 CREATE TABLE IF NOT EXISTS public.users
 (
     id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
@@ -36,8 +34,7 @@ CREATE TABLE IF NOT EXISTS public.users
 
 
 
--- Table: public.cart_items
--- DROP TABLE IF EXISTS public.cart_items;
+
 
 CREATE TABLE IF NOT EXISTS public.cart_items
 (

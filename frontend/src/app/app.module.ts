@@ -12,6 +12,7 @@ import { ApiService } from './services/api.service';
 import { OrdersComponent } from './components/orders/orders.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { InfoComponent } from './components/info/info.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
     OrdersComponent,
     RegisterComponent,
     LoginComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

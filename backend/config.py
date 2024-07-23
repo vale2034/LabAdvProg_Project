@@ -3,16 +3,15 @@ import time
 from sqlalchemy import create_engine,exc
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-# Esempio di URL del database per Docker e Locale
-DOCKERIZED = os.getenv('DOCKERIZED', 'false').lower() in ('true', '1')
 
-# Configura la connessione al database PostgreSQL
-if DOCKERIZED:
-    SQLALCHEMY_DATABASE_URL = "postgresql://postgres:valedb@db:5432/ecommerce"
-else:
-    SQLALCHEMY_DATABASE_URL = "postgresql://postgres:valedb@localhost/ecommerce"
 
-# Crea un'istanza dell'engine di SQLAlchemy
+
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:valedb@host.docker.internal:5432/ecommerce"
+
+
+#  SQLALCHEMY_DATABASE_URL = "postgresql://postgres:valedb@localhost/ecommerce"
+
+
 
 
 for _ in range(10):  # Try to connect 10 times

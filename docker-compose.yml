@@ -7,13 +7,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: valedb
       POSTGRES_DB: ecommerce
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     networks:
@@ -22,12 +15,11 @@ services:
   backend:
     build: ./backend
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     environment:
-     - DOCKERIZED=true
+      SQLALCHEMY_DATABASE_URL: postgresql://postgres:valedb@host.docker.internal:5432/ecommerce
     ports:
-      - "5000:5000"  # Esponi la porta 5000 del container
+      - "5000:5000"
     networks:
       - backend-network
 
