@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia il resto del codice dell'app
 COPY . .
 
-
 # Esponi la porta su cui Flask sta girando
 EXPOSE 5000
 
