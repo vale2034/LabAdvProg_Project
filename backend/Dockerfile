@@ -13,9 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia il resto del codice dell'app
 COPY . .
 
-# Copia il wait-for-it script
-COPY wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /wait-for-it.sh
 
 # Esponi la porta su cui Flask sta girando
 EXPOSE 5000

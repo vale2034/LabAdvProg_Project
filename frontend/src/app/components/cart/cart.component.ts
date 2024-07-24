@@ -35,16 +35,16 @@ export class CartComponent implements OnInit {
   updateQuantity(productId: number, quantity: number): void {
     this.apiService.updateCartItem(this.userId, productId, quantity).subscribe(response => {
       console.log('Cart item updated:', response);
-      this.loadCart(this.userId); // Ricarica il carrello dopo l'aggiornamento
+      this.loadCart(this.userId); 
     });
   }
 
 
   removeFromCart(itemId: number): void {
-    console.log('Removing item with ID:', itemId); // Verifica che itemId sia definito e corretto
+    console.log('Removing item with ID:', itemId); 
     this.apiService.removeFromCart(this.userId, itemId).subscribe(response => {
       console.log('Item removed from cart:', response);
-      this.loadCart(this.userId); // Ricarica il carrello dopo la rimozione
+      this.loadCart(this.userId); 
       window.appComponent.loadCartItemCount();
     }, error => {
       console.error('Error removing item from cart:', error);
