@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   }
 
   loadCartItemCount(): void {
-    const userId = this.authService.getUserId(); // Sostituisci con l'ID dell'utente attuale
+    const userId = this.authService.getUserId(); 
     this.apiService.getCart(userId).subscribe(cartItems => {
       this.cartItemCount = cartItems.reduce((sum: any, item: any) => sum + item.quantity, 0);
     });
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
 
 
   fetchOrders() {
-    const userId = 1; // Sostituisci con l'ID dell'utente corrente, se disponibile
+    const userId = this.authService.getUserId(); 
     this.apiService.getOrders(userId).subscribe(
       (orders) => {
         console.log('Orders:', orders);

@@ -17,7 +17,8 @@ services:
     depends_on:
       - db
     environment:
-      SQLALCHEMY_DATABASE_URL: postgresql://postgres:valedb@host.docker.internal:5432/ecommerce
+      - DOCKERIZED=true
+      - SQLALCHEMY_DATABASE_URL: postgresql://postgres:valedb@host.docker.internal:5432/ecommerce
     ports:
       - "5000:5000"
     networks:

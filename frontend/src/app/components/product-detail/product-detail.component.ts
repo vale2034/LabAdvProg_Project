@@ -79,7 +79,7 @@ export class ProductDetailComponent implements OnInit {
     'Smanicato Tecnico - Colore Atracite': 'assets/images/Smanicato Tecnico - Colore Atracite.png',
     'BioChino - Colore Sabbia': 'assets/images/BioChino - Colore Sabbia.png',
     'BioChino- Colore Nero': 'assets/images/BioChino- Colore Nero.png'
-    // Aggiungi altre mappature qui
+  
   };
 
 
