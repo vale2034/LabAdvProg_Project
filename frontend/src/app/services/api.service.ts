@@ -12,7 +12,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  //definire i metodi per la registrazione e per il login 
   register(username: string, email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, { username, email, password }).pipe(
       catchError(this.handleError)
