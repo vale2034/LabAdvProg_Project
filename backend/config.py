@@ -6,8 +6,12 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:valedb@host.docker.internal:5432/ecommerce"
+SQLALCHEMY_DATABASE_URL = "postgresql://user_db:pass_db@host.docker.internal:5432/name_db"
+ 
 
+SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
+if not SQLALCHEMY_DATABASE_URL:
+    raise ValueError("Missing environment variable: SQLALCHEMY_DATABASE_URL")
 
 
 for _ in range(10):  # Try to connect 10 times
