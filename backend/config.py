@@ -3,10 +3,13 @@ import time
 from sqlalchemy import create_engine,exc
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+db_user = os.getenv("DB_USER")
+db_pass = os.getenv("DB_PASS")
+db_name = os.getenv("DB_NAME")
 
 
+SQLALCHEMY_DATABASE_URL = f"postgresql://{db_user}:{db_pass}@host.docker.internal:5432/{db_name}"
 
-SQLALCHEMY_DATABASE_URL = "postgresql://user_db:pass_db@host.docker.internal:5432/name_db"
  
 
 SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
